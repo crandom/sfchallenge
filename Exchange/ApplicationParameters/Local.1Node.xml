@@ -15,7 +15,8 @@
     <Parameter Name="OrderBook_MinReplicaSetSize" Value="1" />
     <Parameter Name="OrderBook_TargetReplicaSetSize" Value="1" />
     <Parameter Name="ReverseProxy_Port" Value="19081" />
-    <Parameter Name="MongoConnectionString" Value="mongodb://localhost:27017" />
-    <Parameter Name="MongoEnableSSL" Value="false" />
+    <Parameter Name="MongoConnectionString" Value="mongodb://team6-cosmos:0skqLp8H5BsqI3zJeVYl9Tpbz78zM2PU7KxEMZ8mQ3ihVkAwwdQHeFoePwQ4fJZkmAp5EdlhwJh6yh7k3OaYCw==@team6-cosmos.documents.azure.com:10255/?ssl=true&amp;replicaSet=globaldb" />
+    <!--<Parameter Name="MongoConnectionString" Value="mongodb://localhost:27017" />-->
+    <Parameter Name="MongoEnableSSL" Value="true" />
   </Parameters>
 </Application>
