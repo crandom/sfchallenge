@@ -2,7 +2,7 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ExchangeType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <!-- Enter you team's name-->
-    <Parameter Name="TeamName" DefaultValue="" />
+    <Parameter Name="TeamName" DefaultValue="team6-LDN0618" />
     <!-- Cluster parameters -->
     <Parameter Name="ReverseProxy_Port" DefaultValue="19081" />
     <!-- Logger parameters -->
@@ -14,21 +14,21 @@
     <Parameter Name="MongoConnectionString" DefaultValue="mongodb://mongo.exchange:27017" />
     <Parameter Name="MongoEnableSSL" DefaultValue="false" />
     <!-- Gateway parameters -->
-    <Parameter Name="Gateway_InstanceCount" DefaultValue="1" />
+    <Parameter Name="Gateway_InstanceCount" DefaultValue="5" />
     <!-- UserStore parameters -->
     <Parameter Name="UserStore_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="UserStore_PartitionCount" DefaultValue="1" />
     <Parameter Name="UserStore_TargetReplicaSetSize" DefaultValue="3" />
     <!-- Fulfillment parameters -->
     <Parameter Name="Fulfillment_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="Fulfillment_PartitionCount" DefaultValue="1" />
+    <Parameter Name="Fulfillment_PartitionCount" DefaultValue="5" />
     <Parameter Name="Fulfillment_TargetReplicaSetSize" DefaultValue="3" />
     <!-- OrderBook parameters -->
     <Parameter Name="OrderBook_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="OrderBook_PartitionCount" DefaultValue="1" />
+    <Parameter Name="OrderBook_PartitionCount" DefaultValue="6" />
     <Parameter Name="OrderBook_TargetReplicaSetSize" DefaultValue="3" />
     <!-- The following parameters are defined by the adminstrators, do not change or remove -->
-    <Parameter Name="Admin_AppInsights_InstrumentationKey" DefaultValue="" />
+    <Parameter Name="Admin_AppInsights_InstrumentationKey" DefaultValue="fe64828c-3ddf-4d9f-aaa0-a03eb27f527e" />
     <Parameter Name="Fulfillment_MaxTradesPending" DefaultValue="800" />
     <Parameter Name="OrderBook_MaxBidsPending" DefaultValue="700" />
     <Parameter Name="OrderBook_MaxAsksPending" DefaultValue="700" />
@@ -130,7 +130,14 @@
     <!-- Create OrderBook Service -->
     <Service Name="OrderBook">
       <StatefulService ServiceTypeName="OrderBookType" TargetReplicaSetSize="[OrderBook_TargetReplicaSetSize]" MinReplicaSetSize="[OrderBook_MinReplicaSetSize]">
-        <SingletonPartition />
+        <NamedPartition>
+          <Partition Name="GBPUSD" />
+          <Partition Name="GBPEUR" />
+          <Partition Name="USDGBP" />
+          <Partition Name="USDEUR" />
+          <Partition Name="EURUSD" />
+          <Partition Name="EURGBP" />
+        </NamedPartition>
       </StatefulService>
     </Service>
     <!-- Create Logger Service -->
