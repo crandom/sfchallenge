@@ -11,8 +11,10 @@
     <Parameter Name="Logger_TargetReplicaSetSize" DefaultValue="3" />
     <!-- MongoDB parameters -->
     <Parameter Name="MongoGuestExe_InstanceCount" DefaultValue="1" />
-    <Parameter Name="MongoConnectionString" DefaultValue="mongodb://mongo.exchange:27017" />
-    <Parameter Name="MongoEnableSSL" DefaultValue="false" />
+    <!--<Parameter Name="MongoConnectionString" DefaultValue="mongodb://mongo.exchange:27017" />-->
+    <Parameter Name="MongoConnectionString" DefaultValue="mongodb://team6-cosmos:0skqLp8H5BsqI3zJeVYl9Tpbz78zM2PU7KxEMZ8mQ3ihVkAwwdQHeFoePwQ4fJZkmAp5EdlhwJh6yh7k3OaYCw==@team6-cosmos.documents.azure.com:10255" />
+    <!--<Parameter Name="MongoEnableSSL" DefaultValue="false" />-->
+    <Parameter Name="MongoEnableSSL" DefaultValue="true" />
     <!-- Gateway parameters -->
     <Parameter Name="Gateway_InstanceCount" DefaultValue="5" />
     <!-- UserStore parameters -->
