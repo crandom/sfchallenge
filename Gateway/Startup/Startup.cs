@@ -28,6 +28,12 @@ namespace Gateway
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Team 6 SF", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,8 +44,16 @@ namespace Gateway
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint($"/swagger/v1/swagger.json", "OrderBook API");
+                c.RoutePrefix = "";
+                //c.SupportedSubmitMethods(new SubmitMethod[] { });
+            });
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint($"OrderBook/swagger/v1/swagger.json", "OrderBook API");
