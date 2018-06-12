@@ -5,6 +5,8 @@
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
     <Platforms>x64</Platforms>
+    <ApplicationInsightsResourceId>/subscriptions/87aa5145-6abe-4d8a-a77d-8ee797fd1a65/resourcegroups/team6-ldn0618_Main/providers/microsoft.insights/components/team6</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/87aa5145-6abe-4d8a-a77d-8ee797fd1a65/resourcegroups/team6-ldn0618_Main/providers/microsoft.insights/components/team6</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,5 +48,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 </Project>
